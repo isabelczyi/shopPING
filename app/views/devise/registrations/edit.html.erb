@@ -9,7 +9,17 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
+    <%= f.input :first_name,
+                required: true,
+                input_html: { autocomplete: "first-name" }%>
+    <%= f.input :last_name,
+                required: true,
+                input_html: { autocomplete: "last-name" }%>
+    <%= f.input :nearby_distance,
+                collection: 1..100,
+                label: 'What is the max distance you\'re willing to travel in km?',
+                required: true,
+                input_html: { autocomplete: "nearby-distance" }%>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,

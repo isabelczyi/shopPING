@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_032003) do
+ActiveRecord::Schema.define(version: 2022_03_07_034027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "list_id"
+    t.boolean "completed", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["list_id"], name: "index_items_on_list_id"
+  end
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
@@ -21,6 +31,16 @@ ActiveRecord::Schema.define(version: 2022_03_07_032003) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "address"
+    t.bigint "item_id", null: false
+    t.float "longitude"
+    t.float "latitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_locations_on_item_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,5 +58,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_032003) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "lists"
   add_foreign_key "lists", "users"
+  add_foreign_key "locations", "items"
 end
