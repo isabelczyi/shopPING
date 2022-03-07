@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   has_many :locations, dependent: :destroy
 
   accepts_nested_attributes_for :locations, :reject_if => lambda { |a| a[:address].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :list
 
   validates :name, presence: true
 end

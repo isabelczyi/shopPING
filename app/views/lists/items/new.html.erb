@@ -1,6 +1,3 @@
-<% if policy(List).create? %>
-  <%= link_to "Create a list", new_list_path %>
-<% end %>
 <%= simple_form_for [@list, @item] do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
