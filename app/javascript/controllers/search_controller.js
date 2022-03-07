@@ -65,7 +65,7 @@ export default class extends Controller {
               .addTo(map);
           });
         });
-    }, 2000)
+    }, 500)
   }
 
   showMap(event) {
