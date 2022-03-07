@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'json'
+
 class Lists::ItemsController < ApplicationController
 
   def new
@@ -5,6 +8,7 @@ class Lists::ItemsController < ApplicationController
     @item = Item.new
     authorize @item
     @item.locations.build
+    # render 'lists/items/new.html.erb'
   end
 
   def create
@@ -34,5 +38,11 @@ class Lists::ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name, :description, locations_attributes: [:id, :address, :_destroy])
   end
 end
