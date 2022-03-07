@@ -1,0 +1,7 @@
+<%= simple_form_for @list do |f| %>
+        <div class="form-inputs">
+          <%= f.input :name %>
+        </div>
+        <%= f.submit "Submit list",  class: "btn btn-success" %>
+        <%= link_to "Cancel", :back, class: "btn btn-outline-success" %>
+     <% end %>
