@@ -7,3 +7,7 @@
     <h5 class="card-title"><%= @list.name%></h5>
   </div>
 </div>
+
+<% if policy(Item).create? %>
+  <%= link_to "Add an item", new_list_item_path(@list) %>
+<% end %>

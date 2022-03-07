@@ -1,0 +1,14 @@
+<% if policy(List).create? %>
+  <%= link_to "Create a list", new_list_path %>
+<% end %>
+<%= simple_form_for [@list, @item] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <h3>locations</h3>
+  <div id='locations'>
+    <%= f.simple_fields_for :locations do |location| %>
+      <%= render 'items/location_fields', :f => location %>
+    <% end %>
+  </div>
+  <%= f.submit 'Save' %>
+<% end %>
