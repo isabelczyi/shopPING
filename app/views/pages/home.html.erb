@@ -1,7 +1,5 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 <% if user_signed_in? %>
-  <% if policy(List).create? %>
-    <%= link_to "Create a list", new_list_path %>
-  <% end %>
+  <%= render 'user_home' %>
+<% else %>
+  <%= render 'visitor_home' %>
 <% end %>
