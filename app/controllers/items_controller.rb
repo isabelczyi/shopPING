@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     authorize @item
+    @item.locations.build
   end
 
   def create
@@ -51,6 +52,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-   params.require(:item).permit(:name)
+   params.require(:item).permit(:name, :description, locations_attributes: [:id, :address, :_destroy])
   end
 end
