@@ -1,0 +1,13 @@
+<% items.each do |item| %>
+<div class="m-2 pb-2" style="border-radius: 4px; background: #EDF0DA;">
+  <div class="ms-3 me-3 mt-2 pt-2 d-flex justify-content-between">
+    <div><%= render "checkbox", item: item %> <%= item.name %></div>
+    <div><i class="fas fa-pencil-alt"></i></div>
+  </div>
+  <% if !item.description.empty? %>
+    <div class="ms-3 me-3 p-2 mt-1" style="background-color: #ffffff; border-radius: 4px;">
+      <%= item.description %>
+    </div>
+  <% end %>
+</div>
+<% end %>

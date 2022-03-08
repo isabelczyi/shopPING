@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   resources :lists do
     resources :items, only: [:new, :create], controller: "lists/items"
   end
-  resources :items
+  resources :items do
+    member do
+      post :completed_toggle
+    end
+  end
 end
