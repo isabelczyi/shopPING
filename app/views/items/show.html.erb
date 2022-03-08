@@ -1,19 +1,22 @@
 <div class="container .text-ceter">
   <div> <h2> Item Description </h2> </div>
-    <div class = "container" style="width:300px; height:150px; background-color:#EDF1DB;">
-        <div class="d-flex justify-content-around pt-3" >
-          <% if @item.completed %>
-              <i class="far fa-check-square"></i>
-          <% else %>
-            <i class="fa-regular fa-square"></i>
-          <% end %>
-
-          <div> <h5> <%= @item.name %> </h5> </div>
-          <div> <a href = "<%= edit_item_path(@item) %>"> <i class="fas fa-pencil-alt"></i> </a>  </div>
+    <div class="m-2 pb-2" style="border-radius: 4px; background: #EDF0DA;">
+        <div class="ms-3 me-3 mt-2 pt-2 d-flex justify-content-between" >
+          <div><%= render "checkbox", item: @item %> <%= @item.name %></div>
+          <div class = "d-flex">
+            <div> <a href = "<%= edit_item_path(@item) %>"> <i class="fas fa-pencil-alt"></i> </a></div>
+            <div class ="ms-3"> <%= link_to item_path(@item), method: :delete,
+                data: {confirm: "Are you sure?"} do %>
+                <i class="far fa-trash-alt"></i>
+                <%end%>
+            </div>
+          </div>
         </div>
 
-        <div class="container text-center pt-2 pb-2" >
-          <div> <p class="card-text"> <%= @item.description %> </p>
-        </div>
+        <% if !@item.description.empty? %>
+          <div class="ms-3 me-3 p-2 mt-1" style="background-color: #ffffff; border-radius: 4px;">
+            <%= @item.description %>
+          </div>
+        <% end %>
     </div>
 </div>
