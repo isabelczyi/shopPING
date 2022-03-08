@@ -1,3 +1,11 @@
+List of lists should be here
+
+<% if @lists.empty?%>
+  <p> Please make a list! </p>
+<% else %>
+  <%= render 'card' %>
+<% end %>
+
 <% if policy(List).create? %>
-  <%= link_to "Create a list", new_list_path %>
+  <%= link_to "Create new list", new_list_path %>
 <% end %>
