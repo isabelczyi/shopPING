@@ -11,8 +11,11 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
-  <body>
+<% if !user_signed_in?%>
+  <body style="background-color: #92B4A7">
+  <% else %>
+   <body>
+   <% end %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 

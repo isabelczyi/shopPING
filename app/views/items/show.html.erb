@@ -1,3 +1,19 @@
-<% @item.name %>
-<% @item.description %>
-<%= link_to "Edit item", edit_item_path(@item) %>
+<div class="container .text-ceter">
+  <div> <h2> Item Description </h2> </div>
+    <div class = "container" style="width:300px; height:150px; background-color:#EDF1DB;">
+        <div class="d-flex justify-content-around pt-3" >
+          <% if @item.completed %>
+              <i class="far fa-check-square"></i>
+          <% else %>
+            <i class="fa-regular fa-square"></i>
+          <% end %>
+
+          <div> <h5> <%= @item.name %> </h5> </div>
+          <div> <a href = "<%= edit_item_path(@item) %>"> <i class="fas fa-pencil-alt"></i> </a>  </div>
+        </div>
+
+        <div class="container text-center pt-2 pb-2" >
+          <div> <p class="card-text"> <%= @item.description %> </p>
+        </div>
+    </div>
+</div>
