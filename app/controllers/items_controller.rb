@@ -90,6 +90,18 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def completed_toggle
+    @item = Item.find(params[:id])
+    authorize @item
+    @item.toggle! :completed
+    @item.save
+
+    respond_to do |format|
+      format.html  { redirect_to items_path }
+      format.json  { render :json => @item }
+    end
+  end
+
   private
 
   def item_params

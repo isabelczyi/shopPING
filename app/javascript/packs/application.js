@@ -14,3 +14,36 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+const toggleCheckbox = (event) => {
+  event.preventDefault()
+  const link = event.currentTarget
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+  console.log('clicked')
+  const url = `/items/${event.currentTarget.dataset.itemId}/completed_toggle` + '.json'
+  fetch(url, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': csrfToken
+    },
+    method: "POST"
+  })
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data)
+      if (data.completed) {
+        link.innerHTML = "<i class='fa-solid fa-square-check checkbox'></i>"
+      } else {
+        link.innerHTML = "<i class='fa-solid fa-square checkbox'></i>"
+      }
+    })
+}
+
+document.addEventListener('turbolinks:load', (e) => {
+  const checkboxes = document.querySelectorAll('#checkbox')
+  console.log(checkboxes)
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('click', toggleCheckbox)
+  })
+})

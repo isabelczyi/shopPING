@@ -22,4 +22,8 @@ class ItemPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def completed_toggle?
+    record.user == user
+  end
+
 end
