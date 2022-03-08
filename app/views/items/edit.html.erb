@@ -1,1 +1,15 @@
-render form
+<%= simple_form_for(@item) do |f| %>
+  <%= f.association :list, label: "Select a list or leave this blank" %>
+  <%= f.input :name, label: "Item name" %>
+  <%= f.input :description %>
+  <h3>locations</h3>
+  <div id='locations'>
+    <% unique_addresses = @item.locations.distinct.pluck(:address).map{|address| @item.locations.find_by_address(address)} %>
+    <%= f.simple_fields_for :locations do |location| %>
+      <% if unique_addresses.include?(location.object) %>
+        <%= render 'location_fields', :f => location %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= f.submit 'Save' %>
+<% end %>
