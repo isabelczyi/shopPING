@@ -57,6 +57,7 @@ class ItemsController < ApplicationController
     authorize @item
   end
 
+
   def update
     @item = Item.find(params[:id])
     authorize @item
