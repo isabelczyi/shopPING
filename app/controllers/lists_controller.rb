@@ -31,7 +31,7 @@ class ListsController < ApplicationController
     authorize @list
   end
 
-  def updated
+  def update
     @list = List.find(params[:id])
     authorize @list
     @list.user = current_user
