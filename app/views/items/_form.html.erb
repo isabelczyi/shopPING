@@ -1,6 +1,3 @@
-<% if policy(List).create? %>
-  <%= link_to "Create a list", new_list_path %>
-<% end %>
 <%= simple_form_for(item) do |f| %>
   <%= f.association :list, label: "Select a list or leave this blank" %>
   <%= f.simple_fields_for :list do |p| %>
