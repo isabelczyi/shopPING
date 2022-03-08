@@ -4,7 +4,7 @@ body {
 
 h2 {
   text-align: center;
-  padding-top: 10px;
+  padding-top: 18px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500px;
   color: #6D3D14;
@@ -12,14 +12,18 @@ h2 {
 
 .form-inputs {
   width: 300px;
-  height: 300px;
+  height:300px;
   padding-bottom: 5px;
+}
+
+.form-control {
+  border-radius: 8px;
 }
 
 .row > * {
   color: #6D3D14;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .btn {
@@ -32,11 +36,11 @@ h2 {
 }
 
 a {
-  border: 2px solid #F0DFAD;
+  border: 2px solid #EF5D60;
   background-color: #F0DFAD;
   color: #EF5D60;
   font-weight: bolder;
-  padding: 8px 15px 8px 15px;
+  padding: 8px 12px 8px 12px;
   border-radius: 8px;
   text-decoration: none;
 }
