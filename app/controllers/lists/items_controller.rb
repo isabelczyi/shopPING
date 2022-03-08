@@ -1,33 +1,22 @@
 require 'open-uri'
 require 'json'
 
-class ItemsController < ApplicationController
-
-  def index
-    @items = policy_scope(Item).order(created_at: :desc)
-  end
-
-  def show
-    @item = Item.find(params[:id])
-    authorize @item
-  end
+class Lists::ItemsController < ApplicationController
 
   def new
+    @list = List.find(params[:list_id])
     @item = Item.new
     authorize @item
     @item.locations.build
-    @item.list = List.new
+    # render 'lists/items/new.html.erb'
   end
 
   def create
-    # @item = Item.new(item_params)
-    # @list = List.find(params[:list_id])
     @item = Item.new(item_params)
     authorize @item
-    if !@item.list.nil?
-      @item.list.user = current_user
-      @item.list.save
-    end
+
+    @list = List.find(params[:list_id])
+
     search_query = @item.locations.first.address.gsub(' ', '%20')
     url = "https://api.mapbox.com/geocoding/v5/mapbox.places/#{search_query}.json?access_token=pk.eyJ1IjoiaXNhYmVsY3p5aSIsImEiOiJja3pldjNvNWczY2x4MnZuZnpqdDdscGp3In0.iVjXI88mmlkiTMtHQvsPTg"
     data_serialized = URI.open(url).read
@@ -41,8 +30,7 @@ class ItemsController < ApplicationController
       location.longitude = data["features"][index]["geometry"]["coordinates"][0]
       location.latitude = data["features"][index]["geometry"]["coordinates"][1]
     end
-    # if @item.list.exists?
-    #   @item.list = @list
+    @item.list = @list
     @item.locations = locations_array
     @item.user = current_user
     if @item.save
@@ -52,32 +40,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
-    @item = item.find(params[:id])
-    authorize @item
-  end
-
-  def updated
-    @item = item.find(params[:id])
-    authorize @item
-    if @item.update(item_params)
-      redirect_to item_path(@item)
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @item = item.find(params[:id])
-    authorize @item
-    @item.destroy
-
-    redirect_to items_path
-  end
-
   private
 
   def item_params
-   params.require(:item).permit(:name, :description, :list_id, locations_attributes: [:id, :address, :_destroy], list_attributes: [:id, :name])
+    params.require(:item).permit(:name, :description, locations_attributes: [:id, :address, :_destroy])
   end
 end
