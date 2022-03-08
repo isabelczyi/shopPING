@@ -53,12 +53,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = item.find(params[:id])
+    @item = Item.find(params[:id])
     authorize @item
   end
 
-  def updated
-    @item = item.find(params[:id])
+  def update
+    @item = Item.find(params[:id])
     authorize @item
     if @item.update(item_params)
       redirect_to item_path(@item)
@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = item.find(params[:id])
+    @item = Item.find(params[:id])
     authorize @item
     @item.destroy
 
