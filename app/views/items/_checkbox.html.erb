@@ -1,4 +1,4 @@
-<%# <%= link_to completed_toggle_task_path(task), id: 'checkbox', data: { task_id: task.id } do %>
-  <% checked_class = task.completed ? 'fa-check-square' : 'fa-square' %>
+<%= link_to completed_toggle_item_path(item), id: 'checkbox', method: 'post', class: '', data: { item_id: item.id } do %>
+  <% checked_class = item.completed ? 'fa-check-square' : 'fa-square' %>
   <i class='far <%= checked_class %> checkbox'></i>
-<%# <% end %>
+<% end %>
