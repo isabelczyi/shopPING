@@ -1,9 +1,15 @@
 <% @lists.each do |list| %>
-  <div class="my-3 px-2 py-3" style="align-text: center; border: solid 1px red">
-    <%= list.name %>
-    <%= link_to "Edit", edit_list_path(list) %>
-    <%= link_to "Delete", list_path(list),
-        method: :delete,
-        data: {confirm: "Are you sure?"} %>
+  <div class="my-3 px-2 py-3 list-card">
+    <div class="d-flex justify-content-between">
+      <div>
+        <%= list.name %>
+      </div>
+      <div>
+        <%= link_to "Edit", edit_list_path(list) %>
+        <%= link_to "Delete", list_path(list),
+            method: :delete,
+            data: {confirm: "Are you sure?"} %>
+      </div>
+    </div>
   </div>
 <% end %>
