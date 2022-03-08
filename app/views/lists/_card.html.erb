@@ -1,11 +1,11 @@
 <% @lists.each do |list| %>
-  <div class="my-3 px-2 py-3 list-card">
+  <div class="my-3 px-3 py-5 list-card">
     <div class="d-flex justify-content-between">
-      <div>
-        <%= list.name %>
+      <div class="name-card">
+        <%= link_to list.name, list_path(list) %>
       </div>
-      <div>
-        <%= link_to "Edit", edit_list_path(list) %>
+      <div class="links-card">
+        <%= link_to "Edit", edit_list_path(list) %> |
         <%= link_to "Delete", list_path(list),
             method: :delete,
             data: {confirm: "Are you sure?"} %>

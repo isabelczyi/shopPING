@@ -9,10 +9,10 @@
           <%= render 'card' %>
         <% end %>
       </div>
-      <div class="my-3 align-self-bottom" style="text-align: center">
+      <div class="my-3 align-self-bottom lists-add-btn" style="text-align: center">
         <% if policy(List).create? %>
-          <%= link_to new_list_path class: "btn round" do %>
-            <%= "+" %>
+          <%= link_to new_list_path class: "lists-add-btn" do %>
+          <%= "+" %>
           <% end %>
         <% end %>
       </div>
