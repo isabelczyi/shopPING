@@ -1,0 +1,56 @@
+body {
+  background-color: #F0DFAD;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 10px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500px;
+  color: #6D3D14;
+}
+
+.form-inputs {
+  width: 300px;
+  height: 300px;
+  padding-bottom: 5px;
+}
+
+.row > * {
+  color: #6D3D14;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.btn {
+  border: 2px solid #EF5D60;
+  background-color: #EF5D60;
+  color: #F0DFAD;
+  font-weight: bolder;
+  margin-right: 5px;
+  border-radius: 8px;
+}
+
+a {
+  border: 2px solid #F0DFAD;
+  background-color: #F0DFAD;
+  color: #EF5D60;
+  font-weight: bolder;
+  padding: 8px 15px 8px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.picture {
+position: fixed;
+bottom: 25px;
+right: 30px;
+}
+
+.form-select.is-valid {
+    border-color: #EF5D60;
+}
+
+.form-select.is-valid select :required {
+  border-color: #EF5D60;
+}
