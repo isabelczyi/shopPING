@@ -1,15 +1,15 @@
 <div class="pt-5">
   <div class="d-flex justify-content-center">
-    <div class="d-flex flex-column" style="width: 300px">
+    <div class="d-flex flex-column" style="width: 300px; height: 100vh">
       <h3>Your Lists</h3>
-      <div>
+      <div class="my-3">
         <% if @lists.empty? %>
           <p>Please make a list!</p>
         <% else %>
           <%= render 'card' %>
         <% end %>
       </div>
-      <div style="text-align: center">
+      <div class="my-3 align-self-bottom" style="text-align: center">
         <% if policy(List).create? %>
           <%= link_to new_list_path class: "btn round" do %>
             <%= "+" %>
