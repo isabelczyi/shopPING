@@ -3,10 +3,12 @@
     <div class="d-flex flex-column name-list" style="width: 300px; height: 100vh">
       <h3>Your Lists</h3>
       <div class="mb-3">
-        <% if @lists.empty? %>
+        <% if current_user.lists.empty? %>
           <p>Please make a list!</p>
         <% else %>
-          <%= render 'card' %>
+          <div id="enablesortable">
+            <%= render 'card' %>
+          </div>
         <% end %>
       </div>
       <div class="my-3 align-self-bottom lists-add-btn" style="text-align: center">
