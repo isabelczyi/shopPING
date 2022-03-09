@@ -74,3 +74,6 @@ gem "turbolinks_render"
 
 # cloudinary
 gem 'cloudinary', '~> 1.16.0'
+
+# geocoder
+gem "geocoder"
