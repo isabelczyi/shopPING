@@ -1,15 +1,25 @@
-<%= simple_form_for(@item) do |f| %>
-  <%= f.association :list, label: "Select a list or leave this blank" %>
-  <%= f.input :name, label: "Item name" %>
-  <%= f.input :description %>
-  <h3>locations</h3>
-  <div id='locations'>
-    <% unique_addresses = @item.locations.distinct.pluck(:address).map{|address| @item.locations.find_by_address(address)} %>
-    <%= f.simple_fields_for :locations do |location| %>
-      <% if unique_addresses.include?(location.object) %>
-        <%= render 'location_fields', :f => location %>
+<div class="body-sign-up">
+  <div class="d-flex justify-content-center">
+    <div class="d-flex flex-column name-list">
+      <div class="p-2 name-list">
+        <h2>Edit item</h2>
+      </div>
+      <div style="width: 300px">
+      <%= simple_form_for(@item) do |f| %>
+        <%= f.association :list, label: "Select a list or leave this blank" %>
+        <%= f.input :name, label: "Item name" %>
+        <%= f.input :description %>
+        <div id='locations'>
+          <% unique_addresses = @item.locations.distinct.pluck(:address).map{|address| @item.locations.find_by_address(address)} %>
+          <%= f.simple_fields_for :locations do |location| %>
+            <% if unique_addresses.include?(location.object) %>
+              <%= render 'location_fields', :f => location %>
+            <% end %>
+          <% end %>
+        </div>
+        <%= f.submit 'Save' %> <%= link_to 'Cancel', :back %>
       <% end %>
-    <% end %>
+      </div>
+    </div>
   </div>
-  <%= f.submit 'Save' %> <%= link_to 'Cancel', :back %>
-<% end %>
+</div>
