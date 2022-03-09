@@ -1,32 +1,15 @@
 // Specific CSS for your home-page
-.button {
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  border-radius: 4px;
+.homepage-title {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 72px;
 }
 
-.button1 {
-  background-color: #EDF1DB;
-  color: #ef5e60;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  width: 50vw;
-  font-weight: lighter;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 150px;
-}
-
-.button2 {
-  background-color: #EF5E60;
-  color: #edf0da;
-  font-weight: bold;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  width: 50vw;
+.homepage-description {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-bottom: 4px;
 }
