@@ -6,7 +6,7 @@
         <% if current_user.lists.empty? %>
           <p>Please make a list!</p>
         <% else %>
-          <div id="enablesortable">
+          <div id="sortablelists">
             <%= render 'card' %>
           </div>
         <% end %>
