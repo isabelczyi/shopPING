@@ -71,3 +71,6 @@ gem 'pundit'
 
 # turbolink render
 gem "turbolinks_render"
+
+# cloudinary
+gem 'cloudinary', '~> 1.16.0'

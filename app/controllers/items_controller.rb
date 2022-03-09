@@ -13,7 +13,8 @@ class ItemsController < ApplicationController
     @markers = @item.locations.map do |location|
       {
         lat: location.latitude,
-        lng: location.longitude
+        lng: location.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { location: location })
       }
     end
   end
@@ -103,7 +104,7 @@ class ItemsController < ApplicationController
     @item.save
 
     respond_to do |format|
-      format.html  { redirect_to items_path(anchor: @item)}
+      # format.html  { redirect_to items_path(anchor: "#{@item.id}")}
       format.json  { render :json => @item }
     end
   end
