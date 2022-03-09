@@ -1,31 +1,36 @@
-<div class="container .text-ceter">
-  <div> <h2> Item Description </h2> </div>
-    <div class="m-2 pb-2" style="border-radius: 4px; background: #EDF0DA;">
-        <div class="ms-3 me-3 mt-2 pt-2 d-flex justify-content-between" >
-          <div><%= render "checkbox", item: @item %> <%= @item.name %></div>
-          <div class = "d-flex">
-            <div> <a href = "<%= edit_item_path(@item) %>"> <i class="fas fa-pencil-alt"></i> </a></div>
-            <div class ="ms-3"> <%= link_to item_path(@item), method: :delete,
-                data: {confirm: "Are you sure?"} do %>
-                <i class="far fa-trash-alt"></i>
-                <%end%>
+<div class="body-sign-up">
+  <div class="d-flex justify-content-center" style="border: 1px solid red">
+    <div class="d-flex flex-column name-list" style="border: 1px solid black">
+      <div> <h2> Item Description </h2> </div>
+        <%# <div class="m-2 pb-2" style="border-radius: 4px; background: #EDF0DA;"> %>
+            <div class="ms-3 me-3 mt-2 pt-2 d-flex justify-content-between" >
+              <div><%= render "checkbox", item: @item %> <%= @item.name %></div>
+              <div class = "d-flex">
+                <div> <a href = "<%= edit_item_path(@item) %>"> <i class="fas fa-pencil-alt"></i> </a></div>
+                <div class ="ms-3"> <%= link_to item_path(@item), method: :delete,
+                    data: {confirm: "Are you sure?"} do %>
+                    <i class="far fa-trash-alt"></i>
+                    <%end%>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <% if !@item.description.empty? %>
-          <div class="ms-3 me-3 p-2 mt-1" style="background-color: #ffffff; border-radius: 4px;">
-            <%= @item.description %>
-          </div>
-        <% end %>
-    </div>
-   <div style="width: 100%; height: 600px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+            <% if !@item.description.empty? %>
+              <div class="ms-3 me-3 p-2 mt-1" style="background-color: #ffffff; border-radius: 4px;">
+                <%= @item.description %>
+              </div>
+            <% end %>
+        <%# </div> %>
+      <div style="width: 90%; height: 600px;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
 
   <div class = "text-center">
    <%= link_to "Back", :back %>
   <div>
+</div>
+</div>
+</div>
 </div>
