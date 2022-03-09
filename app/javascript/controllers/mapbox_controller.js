@@ -9,7 +9,6 @@ export default class extends Controller {
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-    debugger
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/navigation-day-v1",
