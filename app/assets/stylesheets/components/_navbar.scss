@@ -1,26 +1,45 @@
 .navbar-lewagon {
   justify-content: space-between;
+  background: #F0DFAD;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  // border: 1px solid purple;
 }
 
 .navbar-toggler {
   border: none;
   background-color: #E3B23C;
   margin-bottom: 2px;
+  // border: 1px solid pink;
 }
 
 .navbar-light .navbar-nav .nav-link {
   color: #6D3D14;
   border: none;
   border-radius: 8px;
+  // border: 1px solid green;
 }
 
 a.nav-link {
-  background-color: #E3B23C;
   width: 150px;
   padding-left: 5px;
   margin-bottom: 2px;
+  // border: 1px solid blue;
+}
+
+.drop-down {
+  // background-color: #E3B23C;
+  // width: 150px;
+  // border: 1px solid red;
+}
+
+.hamburger-drop {
+  background-color: #E3B23C;
+}
+
+.navbar-nav .nav-link {
+  padding-right: 0;
+  padding-left: 8px;
 }
