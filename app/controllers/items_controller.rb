@@ -97,7 +97,7 @@ class ItemsController < ApplicationController
     @item.save
 
     respond_to do |format|
-      format.html  { redirect_to items_path }
+      format.html  { redirect_to items_path(anchor: @item)}
       format.json  { render :json => @item }
     end
   end

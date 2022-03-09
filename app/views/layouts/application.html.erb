@@ -16,9 +16,11 @@
   <% else %>
    <body>
    <% end %>
+   <div>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
     <%= yield %>
+   </div>
   </body>
 </html>

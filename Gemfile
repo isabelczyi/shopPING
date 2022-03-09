@@ -68,3 +68,6 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 
 # Authorisation
 gem 'pundit'
+
+# turbolink render
+gem "turbolinks_render"
