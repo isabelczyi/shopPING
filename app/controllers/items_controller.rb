@@ -10,6 +10,12 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     authorize @item
+    @markers = @item.locations.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude
+      }
+    end
   end
 
   def new
