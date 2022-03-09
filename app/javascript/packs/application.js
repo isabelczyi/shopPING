@@ -15,6 +15,10 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 
+import { initSortable } from "controllers/sortable"
+initSortable()
+
+
 const toggleCheckbox = (event) => {
   event.preventDefault()
   const link = event.currentTarget
