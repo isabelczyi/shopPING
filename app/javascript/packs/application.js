@@ -18,8 +18,8 @@ import "bootstrap"
 const toggleCheckbox = (event) => {
   event.preventDefault()
   const link = event.currentTarget
-  const scrollPosition = Window.scrollTop
-  console.log(scrollPosition)
+  // const scrollPosition = Window.scrollTop
+  // console.log(scrollPosition)
   console.log('clicked')
   const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
   const url = `/items/${event.currentTarget.dataset.itemId}/completed_toggle` + '.json'
@@ -35,9 +35,9 @@ const toggleCheckbox = (event) => {
     .then((data) => {
       console.log(data)
       if (data.completed) {
-        link.innerHTML = "<i class='fa-solid fa-square-check checkbox'></i>"
+        link.innerHTML = "<i class='far fa-check-square checkbox'></i>"
       } else {
-        link.innerHTML = "<i class='fa-solid fa-square checkbox'></i>"
+        link.innerHTML = "<i class='far fa-square checkbox'></i>"
       }
     })
 }
