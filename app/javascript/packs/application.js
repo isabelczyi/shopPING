@@ -18,8 +18,10 @@ import "bootstrap"
 const toggleCheckbox = (event) => {
   event.preventDefault()
   const link = event.currentTarget
-  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+  const scrollPosition = Window.scrollTop
+  console.log(scrollPosition)
   console.log('clicked')
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
   const url = `/items/${event.currentTarget.dataset.itemId}/completed_toggle` + '.json'
   fetch(url, {
     headers: {
