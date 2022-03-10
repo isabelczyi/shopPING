@@ -13,7 +13,7 @@
         <h4>List items:</h4>
       </div>
       <div class="p-2">
-        <%= render '../views/items/itemcard', items: @items %>
+        <%= render '../views/items/itemcard', items: @list.items %>
       </div>
       <div class="p-2">
         <% if policy(Item).create? %>

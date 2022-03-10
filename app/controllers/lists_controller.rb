@@ -7,9 +7,6 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     authorize @list
-    @item = Item.find(params[:id])
-    authorize @item
-    @items = policy_scope(Item).order(created_at: :desc)
   end
 
   def new
