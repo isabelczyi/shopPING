@@ -1,31 +1,33 @@
-.button {
+// visitor home button
+.home-btn2 {
+  background-color: #EF5E60;
+  color: #edf0da;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 54px;
+  padding-right: 54px;
+  width: 100vw;
+}
+
+// user home button
+.home-btn1 {
+  color: #ef5e60;
+  background-color: #EDF1DB;
   border: none;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  border-radius: 4px;
-}
-
-.button1 {
-  background-color: #EDF1DB;
-  color: #ef5e60;
   padding-top: 8px;
   padding-bottom: 8px;
-  width: 50vw;
   font-weight: lighter;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   height: 150px;
-}
-
-.button2 {
-  background-color: #EF5E60;
-  color: #edf0da;
-  font-weight: bold;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  width: 50vw;
+  border-radius: 8px;
 }

@@ -1,13 +1,15 @@
-<div class="list-card">
-  <% items.each do |item| %>
-    <div class="list-card" style="border: 1px solid red">
-      <div><%= render "../views/items/checkbox", item: item %></div>
-      <strong>Item: </strong><%= link_to item.name, item_path(item) %><br>
+<% items.each do |item| %>
+  <div class="list-card my-3 px-3 py-3 d-flex flex-row">
+    <div class="p-2 links-card" data-controller="swipe">
+        <strong>Item: </strong><%= link_to item.name.capitalize, item_path(item) %><br>
         <% if !item.description.empty? %>
             <strong>Description: </strong><%= item.description %>
-        <% end %>
-        <%= link_to edit_item_path(item) do %><i class="fas fa-pencil-alt"></i>
-        <% end %>
+        <% end %><br>
+        <%= render "../views/items/checkbox", item: item %> <%= "Mark as completed" %>
     </div>
-  <% end %>
-</div>
+    <div class="p-2 align-self-center">
+      <%= link_to edit_item_path(item) do %><i class="fas fa-pencil-alt"></i>
+      <% end %><br>
+    </div>
+  </div>
+<% end %>

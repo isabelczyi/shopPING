@@ -228,8 +228,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
-    serviceworker-rails (0.6.0)
-      railties (>= 3.1)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -307,7 +305,6 @@ DEPENDENCIES
   redis (~> 4.0)
   sass-rails (>= 6)
   selenium-webdriver
-  serviceworker-rails
   simple_form
   spring
   turbolinks (~> 5)
