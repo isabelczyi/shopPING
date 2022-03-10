@@ -1,6 +1,6 @@
 <div class="list-card">
   <% items.each do |item| %>
-    <div class="list-card" style="border: 1px solid red">
+    <div class="list-card" data-controller="swipe" style="border: 1px solid red">
       <div><%= render "../views/items/checkbox", item: item %></div>
       <strong>Item: </strong><%= link_to item.name, item_path(item) %><br>
         <% if !item.description.empty? %>
