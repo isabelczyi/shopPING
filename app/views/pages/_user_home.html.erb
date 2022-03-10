@@ -1,8 +1,8 @@
 <div class="pt-5" style="background-color: #F0DFAD; text-align: center; color: #6D3D14; width: 100vw; height: 100vh">
     <% if !current_user.photo.key.nil? %>
-      <%= cl_image_tag @user.photo.key, height: 150, width: 150, crop: :fill %>
+      <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar-large" %>
     <% else %>
-      <%= image_tag "https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png", height: 150, width: 150, crop: :fill %>
+      <%= image_tag "default_avatar.svg", class: "avatar-large" %>
     <% end %>
     <%# <%= cl_image_tag @user.photo.key, height: 150, width: 150, crop: :fill %><br>
     <%# <img src="https://via.placeholder.com/150" alt="placeholder"><br> %>
