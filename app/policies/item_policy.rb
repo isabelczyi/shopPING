@@ -26,4 +26,8 @@ class ItemPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def near?
+    true
+  end
+
 end

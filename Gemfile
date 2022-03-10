@@ -77,3 +77,6 @@ gem 'cloudinary', '~> 1.16.0'
 
 # geocoder
 gem "geocoder"
+
+# serviceworker
+gem 'serviceworker-rails'
