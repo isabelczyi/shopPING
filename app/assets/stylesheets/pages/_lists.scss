@@ -33,17 +33,19 @@
   color: #8D6A44;
   text-decoration: none;
 }
+
+
+.name-list > h3 {
+  font-weight: bold;
+  color: #8D6A44;
+}
+
 .lists-add-btn > a {
   color: #8D6A44;
   text-decoration: none;
   background-color: #edf0da;
   border-radius: 8px;
-  padding: 12px 20px 12px 20px;
+  padding: 8px 20px 8px 20px;
   font-size: large;
   border: 1px solid #EF5E60;
-}
-
-.name-list > h3 {
-  font-weight: bold;
-  color: #8D6A44;
 }
