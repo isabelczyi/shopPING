@@ -7,6 +7,8 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     authorize @list
+    @item = Item.find(params[:id])
+    authorize @item
   end
 
   def new

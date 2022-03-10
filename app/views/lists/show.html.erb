@@ -1,13 +1,22 @@
- <% if policy(@list).edit? %>
-    <%= link_to "Update", edit_list_path(@list) %>
-<% end %>
-
-<div class="container bg-white">
-  <div class="col p-3">
-    <h5 class="card-title"><%= @list.name%></h5>
+ <div class="pt-5">
+  <div class="d-flex justify-content-center">
+    <div class="d-flex flex-column name-list" style="width: 300px; height: 100vh">
+      <% if policy(@list).edit? %>
+        <%= link_to "Update", edit_list_path(@list) %>
+      <% end %>
+      <div class="container bg-white">
+        <div class="col p-3">
+          <h5 class="card-title">
+            <%= @list.name%>
+          </h5>
+          <p>
+            <%= link_to @item.name, item_path %>
+          </p>
+        </div>
+      </div>
+      <% if policy(Item).create? %>
+        <%= link_to "Add an item", new_list_item_path(@list) %>
+      <% end %>
+    </div>
   </div>
 </div>
-
-<% if policy(Item).create? %>
-  <%= link_to "Add an item", new_list_item_path(@list) %>
-<% end %>
