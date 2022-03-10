@@ -119,10 +119,10 @@ class ItemsController < ApplicationController
       location.item
     end
     message = " "
-    if item_instances.count == 1
-      message = "#{item_instances[0].name} is nearby!"
-    elsif item_instances.count > 1
-      item_names = item_instances.map {|item| item.name}
+    if item_instances.uniq.count == 1
+      message = "#{item_instances.uniq[0].name} is nearby!"
+    elsif item_instances.uniq.count > 1
+      item_names = item_instances.uniq.map {|item| item.name}
       message = "#{item_names[0..-2].join(', ')} and #{item_names.last} are nearby!"
     end
     respond_to do |format|

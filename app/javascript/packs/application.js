@@ -90,6 +90,12 @@ function showPosition(position) {
     .then((data) => {
 
       console.log(data)
+      Notification.requestPermission().then(function (result) {
+        console.log(result);
+        if (result === 'granted') {
+          new Notification(data.message);
+        }
+      });
 
     })
     .catch((error) => {
@@ -101,15 +107,26 @@ function showPosition(position) {
 //request for location
 setInterval(getLocation, 5000)
 
-Notification.requestPermission().then(function (result) {
-  console.log(result);
-});
+// Notification.requestPermission().then(function (result) {
+//   console.log(result);
+//   if (result === 'granted') {
+//       // navigator.serviceWorker.ready.then(function (registration) {
+//       //   registration.showNotification('Vibration Sample', {
+//       //     body: 'Buzz! Buzz!',
+//       //     icon: '../images/touch/chrome-touch-icon-192x192.png',
+//       //     vibrate: [200, 100, 200, 100, 200, 100, 200],
+//       //     tag: 'vibration-sample'
+//       //   });
+//       // });
+//     var notification = new Notification("Hi there!");
+//     }
+// });
 
 // navigator.serviceWorker.register('sw.js');
 
 // function showNotification() {
 //   Notification.requestPermission(function (result) {
-//     if (result === 'default') {
+//     if (result === 'granted') {
 //       navigator.serviceWorker.ready.then(function (registration) {
 //         registration.showNotification('Vibration Sample', {
 //           body: 'Buzz! Buzz!',
