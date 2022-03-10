@@ -9,7 +9,7 @@
       <% end %>
     <%= f.input :name, label: "Item name" %>
     <%= f.input :description %>
-    <h3>locations</h3>
+
     <div id='locations'>
       <%= f.simple_fields_for :locations do |location| %>
         <%= render 'location_fields', :f => location %>
