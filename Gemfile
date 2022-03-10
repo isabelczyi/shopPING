@@ -77,3 +77,7 @@ gem 'cloudinary', '~> 1.16.0'
 
 # geocoder
 gem "geocoder"
+
+
+# webpush
+gem 'webpush'
