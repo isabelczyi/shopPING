@@ -1,22 +1,25 @@
  <div class="pt-5" style="border: 1px solid red">
   <div class="d-flex justify-content-center" style="border: 1px solid blue">
     <div class="d-flex flex-column name-list" style="width: 300px; height: 100vh; border: 1px solid green">
-      <h3>
-        <%= @list.name %>
-        <% if policy(@list).edit? %>
-          <%= link_to "Update", edit_list_path(@list) %>
-        <% end %>
-      </h3>
-      <h4>List items:</h4>
-      <div class="container bg-white" style="border: 1px solid yellow">
-        <p>
-          <strong>Item: </strong><%= link_to @item.name, item_path %><br>
-          <strong>Description: </strong><%= @item.description %>
-        </p>
+      <div class="p-2">
+        <h3>
+          <%= @list.name %>
+          <% if policy(@list).edit? %>
+            <%= link_to "Update", edit_list_path(@list) %>
+          <% end %>
+        </h3>
       </div>
-      <% if policy(Item).create? %>
-        <%= link_to "Add an item", new_list_item_path(@list) %>
-      <% end %>
+      <div class="p-2">
+        <h4>List items:</h4>
+      </div>
+      <div class="p-2">
+        <%= render '../views/items/itemcard', items: @list.items %>
+      </div>
+      <div class="p-2">
+        <% if policy(Item).create? %>
+          <%= link_to "Add an item", new_list_item_path(@list) %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
