@@ -9,6 +9,7 @@ class ListsController < ApplicationController
     authorize @list
     @item = Item.find(params[:id])
     authorize @item
+    @items = policy_scope(Item).order(created_at: :desc)
   end
 
   def new
