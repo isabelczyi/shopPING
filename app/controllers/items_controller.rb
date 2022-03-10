@@ -118,7 +118,13 @@ class ItemsController < ApplicationController
     item_instances = location_instances.map do |location|
       location.item
     end
-    message = item_instances.nil? ? "There are no items nearby" : "An item is nearby"
+    message = " "
+    if item_instances.count == 1
+      message = "#{item_instances[0].name} is nearby!"
+    elsif item_instances.count > 1
+      item_names = item_instances.map {|item| item.name}
+      message = "#{item_names[0..-2].join(', ')} and #{item_names.last} are nearby!"
+    end
     respond_to do |format|
       format.json { render :json => {message: message, item_exist: !item_instances.nil? } }
     end
