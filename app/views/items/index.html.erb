@@ -1,11 +1,16 @@
-<div class="body-sign-up">
+<div class="pt-3">
   <div class="d-flex justify-content-center">
-    <div class="d-flex flex-column name-list">
-      <div class="p-2 name-list">
-        <h2>All items</h2>
-      </div>
+    <div class="d-flex flex-column name-list" style="width: 300px; height: 100vh">
+        <h3>All items</h3>
       <div id="sortableitems">
-        <%= render "itemcard", items: current_user.items%>
+        <%= render "itemcard", items: current_user.items %>
+      </div>
+      <div class="my-3 align-self-bottom lists-add-btn" style="text-align: center">
+        <% if policy(List).create? %>
+          <%= link_to new_item_path class: "lists-add-btn" do %>
+          <%= "+" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
