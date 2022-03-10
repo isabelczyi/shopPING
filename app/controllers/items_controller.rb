@@ -3,7 +3,7 @@ require 'json'
 
 class ItemsController < ApplicationController
 
-  skip_after_action :verify_authorized, only: :near
+  skip_after_action :verify_authorized, only: [:near, :push]
 
   def index
     @items = policy_scope(Item).order(created_at: :desc)
@@ -118,17 +118,20 @@ class ItemsController < ApplicationController
     item_instances = location_instances.map do |location|
       location.item
     end
-    message = " "
-    if item_instances.uniq.count == 1
-      message = "#{item_instances.uniq[0].name} is nearby!"
-    elsif item_instances.uniq.count > 1
-      item_names = item_instances.uniq.map {|item| item.name}
-      message = "#{item_names[0..-2].join(', ')} and #{item_names.last} are nearby!"
+    if item_instances.uniq.count >= 1
+      WebpushNotification.last.pushnotification("There's an item nearby!")
     end
+    # if item_instances.uniq.count == 1
+    #   message = "#{item_instances.uniq[0].name} is nearby!"
+    # elsif item_instances.uniq.count > 1
+    #   item_names = item_instances.uniq.map {|item| item.name}
+    #   message = "#{item_names[0..-2].join(', ')} and #{item_names.last} are nearby!"
+    # end
     respond_to do |format|
-      format.json { render :json => {message: message, item_exist: !item_instances.nil? } }
+      format.json { render :json => {message: "hello", item_exist: !item_instances.nil? } }
     end
   end
+
 
   private
 

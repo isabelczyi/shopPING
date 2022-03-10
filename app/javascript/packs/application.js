@@ -14,6 +14,46 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+// Import the functions you need from the SDKs you need
+
+import { initializeApp } from "firebase/app";
+
+import { getAnalytics } from "firebase/analytics";
+
+// TODO: Add SDKs for Firebase products that you want to use
+
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+
+// Your web app's Firebase configuration
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyD4OGCL0cOHbpPoMW0Gvw2x_asG9hv_2EY",
+
+  authDomain: "shopping-30de3.firebaseapp.com",
+
+  projectId: "shopping-30de3",
+
+  storageBucket: "shopping-30de3.appspot.com",
+
+  messagingSenderId: "517823355048",
+
+  appId: "1:517823355048:web:c91c1a6852b36ca5a14a9d",
+
+  measurementId: "G-BGMZGE5CY5"
+
+};
+
+
+// Initialize Firebase
+
+const app = initializeApp(firebaseConfig);
+
+const analytics = getAnalytics(app);
+
 
 const toggleCheckbox = (event) => {
   event.preventDefault()
@@ -93,7 +133,8 @@ function showPosition(position) {
             badge: "https://spyna.it/icons/android-icon-192x192.png",
             actions: [{ action: "Detail", title: "View", icon: "https://via.placeholder.com/128/ff0000" }]
           };
-          new Notification(title, options);
+          // new Notification(title, options);
+          // serviceWorkerRegistration.showNotification(title, [options]);
         }
       });
 
