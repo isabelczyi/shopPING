@@ -9,5 +9,9 @@ Rails.application.routes.draw do
     member do
       post :completed_toggle
     end
+    collection do
+      post :near
+    end
+    # end
   end
 end

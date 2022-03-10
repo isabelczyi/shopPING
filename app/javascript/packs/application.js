@@ -55,3 +55,72 @@ document.addEventListener('turbolinks:load', (e) => {
     checkbox.addEventListener('click', toggleCheckbox)
   })
 })
+
+
+
+function getLocation() {
+  console.log("get location")
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    console.log("Geo Location not supported by browser");
+  }
+}
+
+//function that retrieves the position
+function showPosition(position) {
+  // ajax({
+  //   dataType: "text",
+  //   url: "/items/near.json",
+  //   type: "GET",
+  //   data: { coordinates: { lat: position.coords.latitude, lon: position.coords.longitude } },
+  // });
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+  const url = "/items/near.json"
+  fetch(url, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': csrfToken
+    },
+    body: JSON.stringify({ "lat": position.coords.latitude, "lon": position.coords.longitude }),
+    method: "POST"
+  })
+    .then(response => response.json())
+    .then((data) => {
+
+      console.log(data)
+
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+
+}
+
+//request for location
+setInterval(getLocation, 5000)
+
+Notification.requestPermission().then(function (result) {
+  console.log(result);
+});
+
+// navigator.serviceWorker.register('sw.js');
+
+// function showNotification() {
+//   Notification.requestPermission(function (result) {
+//     if (result === 'default') {
+//       navigator.serviceWorker.ready.then(function (registration) {
+//         registration.showNotification('Vibration Sample', {
+//           body: 'Buzz! Buzz!',
+//           icon: '../images/touch/chrome-touch-icon-192x192.png',
+//           vibrate: [200, 100, 200, 100, 200, 100, 200],
+//           tag: 'vibration-sample'
+//         });
+//       });
+//     }
+//   });
+// }
+
+
+// showNotification();

@@ -3,6 +3,8 @@ require 'json'
 
 class ItemsController < ApplicationController
 
+  skip_after_action :verify_authorized, only: :near
+
   def index
     @items = policy_scope(Item).order(created_at: :desc)
   end
@@ -106,6 +108,19 @@ class ItemsController < ApplicationController
     respond_to do |format|
       # format.html  { redirect_to items_path(anchor: "#{@item.id}")}
       format.json  { render :json => @item }
+    end
+  end
+
+  def near
+    lat = params['lat']
+    lon = params['lon']
+    location_instances = current_user.locations.near([lat, lon], current_user.nearby_distance)
+    item_instances = location_instances.map do |location|
+      location.item
+    end
+    message = item_instances.nil? ? "There are no items nearby" : "An item is nearby"
+    respond_to do |format|
+      format.json { render :json => {message: message, item_exist: !item_instances.nil? } }
     end
   end
 

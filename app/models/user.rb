@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :lists, dependent: :destroy
   has_many :items, dependent: :destroy
+  has_many :locations, through: :items
   validates :first_name, presence: true
   validates :last_name, presence: true
 
