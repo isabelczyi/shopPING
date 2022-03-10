@@ -1,5 +1,7 @@
-<% if user_signed_in? %>
-  <%= render 'user_home' %>
-<% else %>
-  <%= render 'visitor_home' %>
-<% end %>
+<div class="pt-3">
+  <% if user_signed_in? %>
+    <%= render 'user_home' %>
+  <% else %>
+    <%= render 'visitor_home' %>
+  <% end %>
+</div>
