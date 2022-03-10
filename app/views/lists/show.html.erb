@@ -1,15 +1,18 @@
  <div class="pt-3">
   <div class="d-flex justify-content-center">
     <div class="d-flex flex-column name-list" style="width: 300px; height: 100vh">
-      <div class="p-2">
-        <h3>
-          <%= @list.name %>
+      <div class="p-2 d-flex flex-row">
+        <div class="p-2">
+          <h3><%= @list.name %></h3>
+        </div>
+        <div class="p-2">
           <% if policy(@list).edit? %>
             <%# <%= link_to "Update", edit_list_path(@list) %>
             <%= link_to edit_list_path do %><i class="fas fa-pencil-alt"></i>
             <% end %>
           <% end %>
-        </h3>
+        </div>
+
       </div>
       <div class="p-2">
         <%= render '../views/items/itemcard', items: @list.items %>
