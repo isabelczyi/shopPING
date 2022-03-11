@@ -6,6 +6,7 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
+import Swal from 'sweetalert2'
 import "channels"
 
 Rails.start()
@@ -82,18 +83,20 @@ function showPosition(position) {
       Notification.requestPermission().then(function (result) {
         console.log(result);
         if (result === 'granted' && data.item_exist) {
-          const img = "/images/jason-leung-HM6TMmevbZQ-unsplash.jpg";
-          const text = data.message;
-          const title = "An item is nearby"
-          const options = {
-            body: text,
-            icon: "/images/jason-leung-HM6TMmevbZQ-unsplash.jpg",
-            vibrate: [200, 100, 200],
-            image: img,
-            badge: "https://spyna.it/icons/android-icon-192x192.png",
-            actions: [{ action: "Detail", title: "View", icon: "https://via.placeholder.com/128/ff0000" }]
-          };
-          new Notification(title, options);
+          Swal.fire(`${data.message}`)
+               // works on firefox localhost
+          // const img = "https://cdn-icons-png.flaticon.com/512/2331/2331966.png";
+          // const text = data.message;
+          // const title = "shopPING alert!"
+          // const options = {
+          //   body: text,
+          //   icon: "https://cdn-icons-png.flaticon.com/512/2331/2331966.png",
+          //   vibrate: [200, 100, 200],
+          //   image: img,
+          //   badge: "https://cdn-icons-png.flaticon.com/512/2331/2331966.png",
+          //   actions: [{ action: "Detail", title: "View", icon: "https://cdn-icons-png.flaticon.com/512/2331/2331966.png" }]
+          // };
+          // new Notification(title, options);
         }
       });
 

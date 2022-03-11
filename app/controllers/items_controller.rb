@@ -118,15 +118,21 @@ class ItemsController < ApplicationController
     item_instances = location_instances.map do |location|
       location.item
     end
+    item_instances.select! { |item| item.completed == false }
     message = " "
     if item_instances.uniq.count == 1
       message = "#{item_instances.uniq[0].name} is nearby!"
+      # flash.alert = message
     elsif item_instances.uniq.count > 1
       item_names = item_instances.uniq.map {|item| item.name}
       message = "#{item_names[0..-2].join(', ')} and #{item_names.last} are nearby!"
+      # flash[:notice] = message
     end
+    item_ids = item_instances.uniq.map { |item| item.id }
     respond_to do |format|
-      format.json { render :json => {message: message, item_exist: !item_instances.nil? } }
+      format.json {
+        render :json => {message: message, item_exist: !item_instances.empty?, item_ids: item_ids }
+      }
     end
   end
 
