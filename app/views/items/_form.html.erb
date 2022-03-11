@@ -1,20 +1,22 @@
 <%= simple_form_for(item) do |f| %>
-  <% if current_user.lists.empty? %>
-    <%= f.association :list, collection: current_user.lists, include_blank: "-- No list to choose from --", label: "Select a list or leave this blank" %>
-  <% else %>
-    <%= f.association :list, collection: current_user.lists,  label: "Select a list or leave this blank" %>
-  <% end %>
+  <%= f.input :name, label: "Item name" %>
+  <%= f.input :description %>
+  <div style="color: #8D6A44; padding-bottom: 8px">List</div>
+  <div style="border: 1px solid #8D6A44; padding: 8px 8px 8px 8px; margin-bottom: 8px">
+    <% if current_user.lists.empty? %>
+      <%= f.association :list, collection: current_user.lists, include_blank: "-- No list to choose from --", label: "Select a list or leave this blank" %>
+    <% else %>
+      <%= f.association :list, collection: current_user.lists,  label: "Select list", hint: "Leave blank if creating a new list" %>
+    <% end %>
     <%= f.simple_fields_for :list do |p| %>
-        <%= p.input :name, label: "Or create a new list here" %>
-      <% end %>
-    <%= f.input :name, label: "Item name" %>
-    <%= f.input :description %>
-
-    <div id='locations'>
-      <%= f.simple_fields_for :locations do |location| %>
-        <%= render 'location_fields', :f => location %>
-      <% end %>
-    </div>
-    <%= f.submit 'Save', class: "btn-forms-light-outline" %>
-    <%= link_to "Cancel", :back, class: "btn-forms-light" %>
+        <%= p.input :name, label: "Create a new list" %>
+    <% end %>
+  </div>
+  <div id='locations'>
+    <%= f.simple_fields_for :locations do |location| %>
+      <%= render 'location_fields', :f => location %>
+    <% end %>
+  </div>
+  <%= f.submit 'Save', class: "btn-forms-light-outline" %>
+  <%= link_to "Cancel", :back, class: "btn-forms-light" %>
 <% end %>
