@@ -1,0 +1,60 @@
+.btn_hidden_delete{
+  color: white;
+  background-color: red;
+  border-radius: 8px;
+  text-align: center;
+  padding: 4px 4px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.list-card {
+  overflow: hidden;
+  position: relative;
+
+  .links-card {
+    transform: translateX(0px);
+    transition-duration: 500ms;
+    background: #EDF1DB;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .hidden-buttons {
+    position: absolute;
+    display: flex;
+    z-index: 0;
+    right: 0px;
+    height: 100%;
+    width: 50%;
+
+    .reveal-btn {
+      width: 50%;
+      height: 100%;
+      color: white;
+      text-align: center;
+      font-size: 16px;
+      text-decoration: none;
+      border: none;
+      border-radius: 0;
+      padding: 0px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .edit-btn {
+      background: #ffbd29;
+    }
+
+    .btn_hidden_delete{
+      background-color: red;
+    }
+  }
+}
+
+.list-card.open {
+  .links-card {
+    transform: translateX(-50%);
+  }
+}
