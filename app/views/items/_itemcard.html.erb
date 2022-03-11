@@ -1,6 +1,5 @@
 <% items.each do |item| %>
   <div class="list-card my-3 d-flex flex-row" data-controller="swipe">
-
     <div class="p-2 links-card" >
         <strong>Item: </strong><%= link_to item.name.capitalize, item_path(item) %><br>
         <% if !item.description.empty? %>
