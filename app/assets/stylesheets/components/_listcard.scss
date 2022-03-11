@@ -1,0 +1,29 @@
+.list-card-design {
+  background-color: $almost-white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  margin: 5px 15px;
+  border-radius: 8px;
+}
+
+.list-name {
+  background: white;
+  color: $brown;
+  padding: 15px 30px;
+  border-radius: 8px;
+  margin-left: 40px;
+}
+
+.edit-icon-list {
+  position: relative;
+  left: 65px;
+  bottom: 40px;
+}
+
+.delete-icon-list {
+  position: relative;
+  left: 40px;
+  top: 40px;
+}
