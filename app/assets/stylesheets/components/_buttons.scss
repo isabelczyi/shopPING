@@ -29,3 +29,23 @@
   padding-bottom: 8px;
   width: 50vw;
 }
+
+.lrg-pink-btn {
+ background-color: #EF5E60;
+ color: #EDF0DA;
+ text-decoration: none;
+ padding: 7px 30px;
+ font-family: 'Poppins', sans-serif;
+ font-weight: 700px;
+ border-radius: 8px;
+}
+
+.sml-brown-btn {
+  color: $brown;
+  border-radius: 8px;
+  border: 4px solid $brown;
+  text-decoration: none;
+  padding: 7px 30px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700px;
+}
