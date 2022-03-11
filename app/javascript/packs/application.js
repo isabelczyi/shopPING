@@ -83,7 +83,7 @@ function showPosition(position) {
       Notification.requestPermission().then(function (result) {
         console.log(result);
         if (result === 'granted' && data.item_exist) {
-          Swal.fire(`${data.message}`)
+          Swal.fire({title: `${data.message}`, confirmButtonColor: '#8D6A44'})
                // works on firefox localhost
           // const img = "https://cdn-icons-png.flaticon.com/512/2331/2331966.png";
           // const text = data.message;
