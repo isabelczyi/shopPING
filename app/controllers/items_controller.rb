@@ -97,6 +97,7 @@ class ItemsController < ApplicationController
     @item.destroy
 
     redirect_to items_path
+
   end
 
   def completed_toggle
