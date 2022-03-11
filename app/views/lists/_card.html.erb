@@ -1,15 +1,19 @@
 <% current_user.lists.each do |list| %>
-  <div class="my-3 px-3 py-5 list-card">
-    <div class="d-flex justify-content-between">
-      <div class="name-card">
-        <%= link_to list.name, list_path(list) %>
-      </div>
-      <div class="links-card">
-        <%= link_to "Edit", edit_list_path(list) %> |
-        <%= link_to "Delete", list_path(list),
+  <div class="my-3 list-card d-flex flex-row" data-controller="swipe">
+    <div class="p-2 links-card">
+        <div class="name-card">
+          <%= link_to list.name, list_path(list) %>
+        </div>
+    </div>
+    <div class="hidden-buttons">
+      <%= link_to edit_item_path(list), class: 'reveal-btn edit-btn' do %>
+        <i class="fas fa-pencil-alt"></i>
+      <% end %>
+      <%= link_to item_path(list), class: 'reveal-btn btn_hidden_delete',
             method: :delete,
-            data: {confirm: "Are you sure?"} %>
-      </div>
+            data: {confirm: "Are you sure?"} do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
     </div>
   </div>
 <% end %>
