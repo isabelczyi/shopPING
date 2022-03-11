@@ -6,10 +6,10 @@
         </div>
     </div>
     <div class="hidden-buttons">
-      <%= link_to edit_item_path(list), class: 'reveal-btn edit-btn' do %>
+      <%= link_to edit_list_path(list), class: 'reveal-btn edit-btn' do %>
         <i class="fas fa-pencil-alt"></i>
       <% end %>
-      <%= link_to item_path(list), class: 'reveal-btn btn_hidden_delete',
+      <%= link_to list_path(list), class: 'reveal-btn btn_hidden_delete',
             method: :delete,
             data: {confirm: "Are you sure?"} do %>
             <i class="fas fa-trash"></i>
