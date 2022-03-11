@@ -1,6 +1,6 @@
 <div style="background-color: #F0DFAD; text-align: center; color: #6D3D14; width: 100vw; height: 100vh">
     <% if !current_user.photo.key.nil? %>
-      <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar-large" %>
+      <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar-large-user" %>
     <% else %>
       <%= image_tag "default_avatar.svg", class: "avatar-large" %>
     <% end %>

@@ -33,14 +33,36 @@
 }
 
 .lrg-pink-btn {
- background-color: #EF5E60;
+ background-color: $dark-pink;
+ border: 4px solid $dark-pink;
  color: #EDF0DA;
  text-decoration: none;
  padding: 7px 30px;
  font-family: 'Poppins', sans-serif;
- font-weight: 700px;
+ font-weight: bold;
  border-radius: 8px;
 }
+
+.lrg-pink-btn:hover {
+  background-color: #f14f52;
+  border: 4px solid #f14f52;
+  color: #EDF0DA;
+  text-decoration: none;
+  padding: 7px 30px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  border-radius: 8px;
+ }
+
+.lrg-grey-btn {
+  background-color: #92B4A7;
+  color: #EDF0DA;
+  text-decoration: none;
+  padding: 7px 30px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  border-radius: 8px;
+ }
 
 .sml-brown-btn {
   color: $brown;
@@ -49,5 +71,15 @@
   text-decoration: none;
   padding: 7px 30px;
   font-family: 'Poppins', sans-serif;
-  font-weight: 700px;
+  font-weight: bolder;
+}
+
+.sml-pink-btn {
+  color: $dark-pink;
+  border-radius: 8px;
+  border: 4px solid $dark-pink;
+  text-decoration: none;
+  padding: 7px 30px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
 }
