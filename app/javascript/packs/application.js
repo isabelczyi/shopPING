@@ -83,20 +83,20 @@ function showPosition(position) {
       Notification.requestPermission().then(function (result) {
         console.log(result);
         if (result === 'granted' && data.item_exist) {
-          Swal.fire({ imageUrl: 'https://i.pinimg.com/originals/43/d8/21/43d821d6b6d6e6c2424a9415a8e00ed0.png', title: `${data.message}`, confirmButtonColor: '#8D6A44'})
+          // Swal.fire({ imageUrl: 'https://i.pinimg.com/originals/43/d8/21/43d821d6b6d6e6c2424a9415a8e00ed0.png', title: `${data.message}`, confirmButtonColor: '#8D6A44'})
                // works on firefox localhost
-          // const img = "https://cdn-icons-png.flaticon.com/512/2331/2331966.png";
-          // const text = data.message;
-          // const title = "shopPING alert!"
-          // const options = {
-          //   body: text,
-          //   icon: "https://cdn-icons-png.flaticon.com/512/2331/2331966.png",
-          //   vibrate: [200, 100, 200],
-          //   image: img,
-          //   badge: "https://cdn-icons-png.flaticon.com/512/2331/2331966.png",
-          //   actions: [{ action: "Detail", title: "View", icon: "https://cdn-icons-png.flaticon.com/512/2331/2331966.png" }]
-          // };
-          // new Notification(title, options);
+          const img = "https://cdn-icons-png.flaticon.com/512/2331/2331966.png";
+          const text = data.message;
+          const title = "shopPING alert!"
+          const options = {
+            body: text,
+            icon: "https://cdn-icons-png.flaticon.com/512/2331/2331966.png",
+            vibrate: [200, 100, 200],
+            image: img,
+            badge: "https://cdn-icons-png.flaticon.com/512/2331/2331966.png",
+            actions: [{ action: "Detail", title: "View", icon: "https://cdn-icons-png.flaticon.com/512/2331/2331966.png" }]
+          };
+          new Notification(title, options);
         }
       });
 
