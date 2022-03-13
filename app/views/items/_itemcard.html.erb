@@ -3,7 +3,7 @@
     <div class="p-2 links-card" >
         <strong>Item: </strong><%= link_to item.name.capitalize, item_path(item) %><br>
         <% if !item.description.empty? %>
-            <strong>Description: </strong><%= item.description %>
+            <strong>Description: </strong> <p style = "width: 100%; height: 30px; overflow:scroll;"> <%= item.description %> </p>
         <% end %><br>
         <%= render "../views/items/checkbox", item: item %> <%= "Mark as completed" %>
     </div>
