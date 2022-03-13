@@ -130,9 +130,10 @@ class ItemsController < ApplicationController
       # flash[:notice] = message
     end
     item_ids = item_instances.uniq.map { |item| item.id }
+    item_ids_string = item_ids.join
     respond_to do |format|
       format.json {
-        render :json => {message: message, item_exist: !item_instances.empty?, item_ids: item_ids }
+        render :json => {message: message, item_exist: !item_instances.empty?, item_ids: item_ids_string }
       }
     end
   end
