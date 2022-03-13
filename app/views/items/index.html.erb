@@ -1,7 +1,16 @@
 <div class="pt-3">
   <div class="d-flex justify-content-center">
     <div class="d-flex flex-column name-list" style="width: 300px; height: 100vh">
-      <h3>All items</h3>
+      <div class="d-flex flex-row justify-content-between">
+        <div class="p-2"><h3>All items</h3></div>
+        <div class="p-2">
+          <% if policy(Item).create? %>
+            <%= link_to new_item_path class: "lists-add-btn" do %>
+            <%= image_tag "plus.svg" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
       <div class="mb-3">
         <% if current_user.items.empty? %>
           <p>Please create an item!</p>
@@ -9,13 +18,6 @@
           <div id="sortableitems">
             <%= render "itemcard", items: current_user.items%>
           </div>
-        <% end %>
-      </div>
-      <div style="position:absolute; top: 70px; right: 50px;">
-        <% if policy(Item).create? %>
-          <%= link_to new_item_path class: "lists-add-btn" do %>
-          <%= image_tag "plus.svg" %>
-          <% end %>
         <% end %>
       </div>
     </div>
