@@ -87,19 +87,20 @@ function showPosition(position) {
                // works on firefox localhost
           const img = "https://cdn-icons-png.flaticon.com/512/2331/2331966.png";
           const text = data.message;
-          const title = "shopPING alert!"
+          const title = "shopPING!"
           const options = {
+            tag: `${data.item_ids}`,
             body: text,
             icon: "https://cdn-icons-png.flaticon.com/512/2331/2331966.png",
             vibrate: [200, 100, 200],
             image: img,
             badge: "https://cdn-icons-png.flaticon.com/512/2331/2331966.png",
-            actions: [{ action: "Detail", title: "View", icon: "https://cdn-icons-png.flaticon.com/512/2331/2331966.png" }]
+            actions: { action: "Detail", title: "View", icon: "https://cdn-icons-png.flaticon.com/512/2331/2331966.png" }
           };
           new Notification(title, options);
+          console.log(data.item_ids)
         }
       });
-
     })
     .catch((error) => {
       console.log(error)
