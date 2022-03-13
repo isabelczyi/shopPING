@@ -96,8 +96,11 @@ class ItemsController < ApplicationController
     authorize @item
     @item.destroy
 
-    redirect_to items_path
-
+    if @item.list_id?
+      redirect_to  list_path(@item.list)
+    else
+      redirect_to items_path
+    end
   end
 
   def completed_toggle
