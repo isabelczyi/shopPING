@@ -41,7 +41,7 @@
 }
 
 
-.name-list > h3 {
+h3 {
   font-weight: bold;
   color: #8D6A44;
 }
@@ -54,4 +54,9 @@
   padding: 8px 20px 8px 20px;
   font-size: large;
   border: 2px solid #92B4A7;
+}
+
+
+.options > a {
+  text-decoration: none;
 }
