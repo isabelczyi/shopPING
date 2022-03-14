@@ -4,7 +4,6 @@
 }
 
 /* Positions the labels relative to the .container. Adds padding to the top and bottom and increases font size. Also makes its cursor a pointer */
-
 .accordion .label1 {
   position: relative;
   padding: 10px 0;
@@ -14,7 +13,6 @@
 }
 
 /* Positions the plus sign 5px from the right. Centers it using the transform property. */
-
 .accordion .label1::before {
   content: '+';
   color: black;
@@ -39,7 +37,6 @@
 }
 
 /* Adds a horizontal line between the contents */
-
 .accordion hr {
   width: 100;
   margin-left: 0;
@@ -47,13 +44,11 @@
 }
 
 /* Unhides the content part when active. Sets the height */
-
 .accordion .container1.active .content1 {
   height: 150px;
 }
 
 /* Changes from plus sign to negative sign once active */
-
 .accordion .container1.active .label1::before {
   content1: '-';
   font-size: 30px;
