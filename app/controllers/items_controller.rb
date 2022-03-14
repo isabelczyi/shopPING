@@ -7,6 +7,15 @@ class ItemsController < ApplicationController
 
   def index
     @items = policy_scope(Item).order(created_at: :desc)
+    @markers = @items.map do |item|
+      item.locations.map do |location|
+        {
+          lat: location.latitude,
+          lng: location.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { location: location })
+        }
+      end
+    end
   end
 
   def show
