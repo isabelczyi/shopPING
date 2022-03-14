@@ -16,7 +16,7 @@
           <p>Please create an item!</p>
         <% else %>
           <div id="sortableitems">
-            <%= render "itemcard", items: current_user.items%>
+            <%= render "itemcard", items: @items %>
           </div>
         <% end %>
       </div>
