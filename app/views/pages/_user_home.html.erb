@@ -1,13 +1,15 @@
 <div style="background-color: #F0DFAD; text-align: center; color: #6D3D14; width: 100vw; height: 100vh">
-  <div>
-      <%= link_to edit_user_registration_path, class: "lists-add-btn", style: "position:absolute; top: 130px; right: 110px" do %>
-        <%= image_tag "edit_icon.svg" %>
-      <% end %>
+  <div class="d-flex justify-content-center">
+
       <% if !current_user.photo.key.nil? %>
         <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar-large-user" %>
         <% else %>
         <%= image_tag "default_avatar.svg", class: "avatar-large" %>
       <% end %>
+      <%= link_to edit_user_registration_path, class: "lists-add-btn", style: "position:relative; top: 150px; right: 50px" do %>
+        <%= image_tag "edit_icon.svg" %>
+      <% end %>
+  </div>
       <%# <%= cl_image_tag @user.photo.key, height: 150, width: 150, crop: :fill %><br>
       <%# <img src="https://via.placeholder.com/150" alt="placeholder"><br> %>
       <h2>Hello, <%= current_user.first_name %>!</h2>
