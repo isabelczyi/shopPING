@@ -37,7 +37,7 @@
       <div class="content1" style="width: 280px">
         <div class="mb-1" style="width: 100%; height: 300px"
           data-controller="mapbox"
-          data-mapbox-markers-value="<%= @markers[index].to_json %>"
+          data-mapbox-markers-value="<%= item.markers.to_json %>"
           data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
