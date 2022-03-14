@@ -34,23 +34,24 @@
 
 .lrg-pink-btn {
  background-color: $dark-pink;
- border: 4px solid $dark-pink;
+ border: 2px solid $dark-pink;
+ opacity: 90%;
  color: #EDF0DA;
  text-decoration: none;
  padding: 7px 30px;
  font-family: 'Poppins', sans-serif;
- font-weight: bold;
+ font-weight: normal;
  border-radius: 8px;
 }
 
 .lrg-pink-btn:hover {
   background-color: #f14f52;
-  border: 4px solid #f14f52;
+  border: 2px solid #f14f52;
   color: #EDF0DA;
   text-decoration: none;
   padding: 7px 30px;
   font-family: 'Poppins', sans-serif;
-  font-weight: bold;
+  font-weight: normal;
   border-radius: 8px;
  }
 
@@ -77,9 +78,9 @@
 .sml-pink-btn {
   color: $dark-pink;
   border-radius: 8px;
-  border: 4px solid $dark-pink;
+  border: 2px solid $dark-pink;
   text-decoration: none;
   padding: 7px 30px;
   font-family: 'Poppins', sans-serif;
-  font-weight: bold;
+  font-weight: normal;
 }
