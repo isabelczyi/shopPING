@@ -96,8 +96,11 @@ class ItemsController < ApplicationController
     authorize @item
     @item.destroy
 
-    redirect_to items_path
-
+    if @item.list_id?
+      redirect_to  list_path(@item.list)
+    else
+      redirect_to items_path
+    end
   end
 
   def completed_toggle
@@ -130,9 +133,10 @@ class ItemsController < ApplicationController
       # flash[:notice] = message
     end
     item_ids = item_instances.uniq.map { |item| item.id }
+    item_ids_string = item_ids.join
     respond_to do |format|
       format.json {
-        render :json => {message: message, item_exist: !item_instances.empty?, item_ids: item_ids }
+        render :json => {message: message, item_exist: !item_instances.empty?, item_ids: item_ids_string }
       }
     end
   end

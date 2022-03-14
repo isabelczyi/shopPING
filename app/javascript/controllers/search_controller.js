@@ -3,7 +3,7 @@ import mapboxgl from '!mapbox-gl';
 
 
 export default class extends Controller {
-  static targets = ["address", "location"]
+  static targets = ["address", "location", "map"]
 
   connect() {
     console.log("Hello!");
@@ -64,6 +64,7 @@ export default class extends Controller {
               .setPopup(popup)
               .addTo(map);
           });
+          this.mapTarget.classList.remove("d-none")
         });
     }, 500)
   }

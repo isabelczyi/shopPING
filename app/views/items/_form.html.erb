@@ -2,7 +2,7 @@
   <%= f.input :name, label: "Item name" %>
   <%= f.input :description %>
   <div style="color: #8D6A44; padding-bottom: 8px">List</div>
-  <div style="border: 1px solid #8D6A44; padding: 8px 8px 8px 8px; margin-bottom: 8px">
+  <div style="border: 2px solid #8D6A44; padding: 8px 8px 8px 8px; margin-bottom: 8px; border-radius: 8px;">
     <% if current_user.lists.empty? %>
       <%= f.association :list, collection: current_user.lists, include_blank: "-- No list to choose from --", label: "Select a list or leave this blank" %>
     <% else %>
