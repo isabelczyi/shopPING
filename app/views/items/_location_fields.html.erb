@@ -1,7 +1,7 @@
 <div class='nested-fields'>
   <div data-controller="search">
     <%= f.input :address, input_html: { "data-action" => "input->search#searchLocation", "data-search-target" => "address", "container-id" => "map"} %>
-      <div class="d-none" id="map" data-search-target="map" style="height: 300px; width: 300px">
+      <div class="d-none mx-auto mb-2" id="map" data-search-target="map" style="height: 300px; width: 300px; border-radius: 8px;">
           <!-- Display the map in this div -->
         </div>
   </div>

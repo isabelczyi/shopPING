@@ -1,23 +1,28 @@
-.item-card-design {
-  background-color: $almost-white;
-  color: $brown;
-  padding: 10px 10px;
-  margin: 5px 15px;
-  border-radius: 8px;
-}
-
-.item {
-  flex-grow: 1;
-}
-
-.item-card-desc {
+.item-desc {
   background: white;
-  width: 300px;
   padding: 10px 30px 10px 10px;
   margin-top: 5px;
   border-radius: 8px;
 }
 
-.item-card-design h6 {
-  padding-left: 10px;
+.item-desc p {
+  color: $brown;
+}
+
+.item-info a {
+  color: $brown;
+  align-items: center;
+}
+
+.item-name {
+padding-left: 10px;
+}
+
+.item-name a {
+  text-decoration: none;
+  color: $brown;
+}
+
+strong {
+  color: $brown;
 }
