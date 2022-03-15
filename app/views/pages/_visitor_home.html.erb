@@ -12,7 +12,17 @@
         <p class="homepage-description">Create shopping lists with locations specified and we'll ping you when you're nearby!</p>
       </div>
       <div class="my-3">
-        <%= link_to "GET STARTED!", new_user_registration_path, class: "home-btn2" %>
+        <div class="wrapper">
+        <%= link_to "GET STARTED!", new_user_registration_path, class: "button" %>
+        </div>
+        <svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+              <defs>
+                  <filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                      <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+                  </filter>
+              </defs>
+          </svg>
       </div>
     </div>
   </div>
