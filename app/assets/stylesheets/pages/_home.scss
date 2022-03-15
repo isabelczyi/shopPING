@@ -19,8 +19,15 @@
 
 }
 
-.lists-add-btn {
+.avatar-edit-btn {
   position: absolute;
-  top: 0px;
-  right: 0px;
+  display: none;
+
+}
+
+.user-img:hover > .avatar-edit-btn {
+  z-index: 200;
+  top: 150px;
+  right: 65px;
+  display: block;
 }
