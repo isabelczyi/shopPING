@@ -8,4 +8,15 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :list, :reject_if => lambda { |b| b[:name].blank? }, allow_destroy: true
 
   validates :name, presence: true
+
+  def markers
+    locations.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude,
+        info_window: ApplicationController.new.render_to_string(partial: 'items/info_window', locals: { location: location })
+        # info_window: render_to_string(partial: "items/info_window", locals: { location: location })
+      }
+    end
+  end
 end
