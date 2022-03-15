@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 import Sortable from "sortablejs"
 
-const list = document.querySelector("#enablesortable")
+// const list = document.querySelector("#enablesortable")
 export default class extends Controller {
 static targets = ["list"]
 
@@ -21,9 +21,9 @@ static targets = ["list"]
   }
 
   updateItemPosition(evt) {
-    console.log("Call api to update position")
-    console.log('old position', evt.oldIndex)
-    console.log('new position', evt.newIndex)
+    // console.log("Call api to update position")
+    // console.log('old position', evt.oldIndex)
+    // console.log('new position', evt.newIndex)
     // fetch to update position of item (update item path)
     // hand in the new position + 1 as the new position
     // once successful, cool haha
