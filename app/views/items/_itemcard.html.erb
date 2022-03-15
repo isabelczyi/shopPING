@@ -1,15 +1,15 @@
-<div class="accordion">
+<div class="accordion" data-controller="sortable" data-sortable-target="list">
   <% items.each_with_index do |item, index| %>
-    <div class="container1" data-controller="accordion" >
+    <div class="container1 sortable-draggable" data-controller="accordion">
       <div class="list-card d-flex flex-row lable1" data-controller="swipe">
         <div class="p-2 links-card" >
-          <div class="d-flex flex-row justify-content-between">
-            <div class="align-self-center">
-              <%= render "../views/items/checkbox", item: item %>
-            </div>
-            <div style="width: 90%" data-action="click->accordion#toggle">
-              <div class="item-name">
-                <strong>Item: </strong ><%= link_to item.name.capitalize, item_path(item) %><br>
+       <div class="d-flex flex-row justify-content-between">
+        <div class="align-self-center">
+          <%= render "../views/items/checkbox", item: item %>
+        </div>
+        <div style="width: 90%" data-action="click->accordion#toggle">
+          <div class="item-name">
+            <%= link_to item.name.capitalize, item_path(item) %><br>
               </div>
               <div class="item-info">
                 <% if !item.description.empty? %>
