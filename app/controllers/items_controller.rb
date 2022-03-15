@@ -66,7 +66,7 @@ class ItemsController < ApplicationController
     end
     @item.user = current_user
     if @item.save
-      redirect_to item_path(@item)
+      redirect_to items_path
     else
       render :new
     end
