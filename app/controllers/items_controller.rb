@@ -96,7 +96,7 @@ class ItemsController < ApplicationController
         location.latitude = data["features"][index]["geometry"]["coordinates"][1]
       end
       @item.locations = locations_array
-      redirect_to item_path(@item)
+      redirect_to items_path(anchor: "item_#{@item.id}")
     else
       render :edit
     end
