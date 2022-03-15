@@ -17,11 +17,9 @@
   position: absolute;
   top: -40px;
   left: -35px;
-
-
 }
 
-.navbar-light .navbar-nav .nav-link {
+.nav-link {
   color: #6D3D14;
   border: none;
   border-radius: 8px;
@@ -30,7 +28,7 @@
 }
 
 a.nav-link {
-  width: 100vw;
+  text-align: center;
   padding-left: 30px;
   margin-bottom: 2px;
   // border: 1px solid blue;
@@ -43,12 +41,19 @@ a.nav-link {
   margin-top: 65px;
 }
 
+.drop-down-all {
+  background-color: #e3b13c;
+  width: 100vw;
+  margin-left: -12px;
+  border-radius: 8px;
+}
+
 .navbar-nav .nav-link {
   padding-right: 0;
   padding-left: 8px;
 }
 
-.navbar-light .navbar-toggler {
+.navbar-toggler {
   color: transparent;
   border-color: transparent;
 }
