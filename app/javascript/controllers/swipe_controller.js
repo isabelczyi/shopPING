@@ -5,7 +5,6 @@ export default class extends Controller {
 
 
   connect() {
-    console.log("swipe")
     // Create a manager to manager the element
     this.hammer = new Hammer.Manager(this.element);
 
