@@ -9,7 +9,7 @@
         </div>
         <div style="width: 90%" data-action="click->accordion#toggle">
           <div class="item-name">
-            <strong>Item: </strong ><%= link_to item.name.capitalize, item_path(item) %><br>
+            <%= link_to item.name.capitalize, item_path(item) %><br>
           </div>
           <div class="item-info">
             <% if !item.description.empty? %>
