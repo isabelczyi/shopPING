@@ -36,7 +36,7 @@ class Lists::ItemsController < ApplicationController
     end
     @item.user = current_user
     if @item.save
-      redirect_to item_path(@item)
+      redirect_to list_path(params[:list_id], anchor: "item_#{@item.id}")
     else
       render :new
     end

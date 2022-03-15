@@ -1,6 +1,6 @@
 <div class="accordion" data-controller="sortable" data-sortable-target="list">
   <% items.each_with_index do |item, index| %>
-    <div class="container1 sortable-draggable" data-controller="accordion">
+    <div class="container1 sortable-draggable" data-controller="accordion" id="item_<%=item.id%>">
       <div class="list-card d-flex flex-row lable1" data-controller="swipe">
         <div class="p-2 links-card" >
        <div class="d-flex flex-row justify-content-between">
