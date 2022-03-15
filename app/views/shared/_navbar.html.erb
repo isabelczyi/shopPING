@@ -1,10 +1,11 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="visible-xs hidden-sm hidden-md hidden-lg">
   <div class="container-fluid">
     <div class="hamburger-drop">
+
+<div class="drop-down-all">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <%= image_tag "hamburger_blob.svg" %>
       </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
             <% if user_signed_in? %>
@@ -30,6 +31,7 @@
               </li>
             <% end %>
           </ul>
+</div>
         </div>
     </div>
   </div>

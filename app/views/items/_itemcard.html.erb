@@ -1,46 +1,47 @@
-<div class="accordion">
+<div class="accordion" data-controller="sortable" data-sortable-target="list">
   <% items.each_with_index do |item, index| %>
-    <div class="container1" data-controller="accordion" >
+    <div class="container1 sortable-draggable" data-controller="accordion">
       <div class="list-card d-flex flex-row lable1" data-controller="swipe">
         <div class="p-2 links-card" >
-               <div class="d-flex flex-row justify-content-between">
+       <div class="d-flex flex-row justify-content-between">
         <div class="align-self-center">
           <%= render "../views/items/checkbox", item: item %>
         </div>
         <div style="width: 90%" data-action="click->accordion#toggle">
           <div class="item-name">
             <%= link_to item.name.capitalize, item_path(item) %><br>
-          </div>
-          <div class="item-info">
-            <% if !item.description.empty? %>
-              <div class="item-desc">
-                <strong>Description: </strong> <p style = "width: 100%; height: 30px; overflow:scroll;"> <%= item.description %> </p>
               </div>
-            <% end %><br>
+              <div class="item-info">
+                <% if !item.description.empty? %>
+                  <div class="item-desc">
+                    <strong>Description: </strong> <p style = "width: 100%; height: 30px; overflow:scroll;"> <%= item.description %> </p>
+                  </div>
+                <% end %><br>
+              </div>
+            </div>
+
           </div>
         </div>
-
-       </div>
-    </div>
         <div class="hidden-buttons">
-            <%= link_to edit_item_path(item), class: 'reveal-btn edit-btn' do %>
-              <i class="fas fa-pencil-alt"></i>
-            <% end %>
-            <%= link_to item_path(item), class: 'reveal-btn btn_hidden_delete',
-                  method: :delete,
-                  data: {confirm: "Are you sure?"} do %>
-                    <i class="fas fa-trash"></i>
-                  <% end%>
+          <%= link_to edit_item_path(item), class: 'reveal-btn edit-btn' do %>
+            <i class="fas fa-pencil-alt"></i>
+          <% end %>
+          <%= link_to item_path(item),
+                      class: 'reveal-btn btn_hidden_delete',
+                      method: :delete,
+                      data: {confirm: "Are you sure?"} do %>
+            <i class="fas fa-trash"></i>
+          <% end%>
         </div>
       </div>
       <% if !item.locations.empty? %>
-      <div class="content1" style="width: 280px">
-        <div class="mb-1" style="width: 100%; height: 300px"
-          data-controller="mapbox"
-          data-mapbox-markers-value="<%= @markers[index].to_json %>"
-          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        <div class="content1" style="width: 280px">
+          <div class="mb-1" style="width: 100%; height: 300px"
+            data-controller="mapbox"
+            data-mapbox-markers-value="<%= @markers[index].to_json %>"
+            data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
         </div>
-      </div>
       <% end %>
     </div>
   <% end %>
