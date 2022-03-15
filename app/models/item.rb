@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   validates :name, presence: true
 
   def markers
-    locations.map do |location|
+    locations.geocoded.map do |location|
       {
         lat: location.latitude,
         lng: location.longitude,

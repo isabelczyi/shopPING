@@ -16,12 +16,24 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 
+const svgContainer = document.getElementById('confetti_svg');
+const animItem = bodymovin.loadAnimation({
+  wrapper: svgContainer,
+  animType: 'svg',
+  loop: false,
+  autoplay: false,
+  path: 'https://assets1.lottiefiles.com/packages/lf20_rovf9gzu.json'
+});
+
+const playConfetti = () => {
+  animItem.goToAndPlay(0, true)
+}
+
 const toggleCheckbox = (event) => {
   event.preventDefault()
   const link = event.currentTarget
   // const scrollPosition = Window.scrollTop
   // console.log(scrollPosition)
-  console.log('clicked')
   const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
   const url = `/items/${event.currentTarget.dataset.itemId}/completed_toggle` + '.json'
   fetch(url, {
@@ -36,6 +48,7 @@ const toggleCheckbox = (event) => {
     .then((data) => {
       console.log(data)
       if (data.completed) {
+        playConfetti()
         link.innerHTML = "<i class='far fa-check-square checkbox'></i>"
       } else {
         link.innerHTML = "<i class='far fa-square checkbox'></i>"
@@ -45,7 +58,6 @@ const toggleCheckbox = (event) => {
 
 document.addEventListener('turbolinks:load', (e) => {
   const checkboxes = document.querySelectorAll('#checkbox')
-  console.log(checkboxes)
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('click', toggleCheckbox)
   })
@@ -54,7 +66,6 @@ document.addEventListener('turbolinks:load', (e) => {
 
 
 function getLocation() {
-  console.log("get location")
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
@@ -78,10 +89,7 @@ function showPosition(position) {
   })
     .then(response => response.json())
     .then((data) => {
-
-      console.log(data)
       Notification.requestPermission().then(function (result) {
-        console.log(result);
         if (result === 'granted' && data.item_exist) {
           // Swal.fire({ imageUrl: 'https://i.pinimg.com/originals/43/d8/21/43d821d6b6d6e6c2424a9415a8e00ed0.png', title: `${data.message}`, confirmButtonColor: '#8D6A44'})
                // works on firefox localhost
