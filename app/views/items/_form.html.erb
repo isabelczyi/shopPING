@@ -17,6 +17,8 @@
       <%= render 'location_fields', :f => location %>
     <% end %>
   </div>
-    <%= f.submit 'Save', class: "lrg-pink-btn" %>
-    <%= link_to "Cancel", :back, class: "sml-pink-btn" %>
+  <div class="d-flex justify-content-between">
+    <%= f.submit 'Save', class: "lrg-pink-btn", style: "width: 50%; text-align: center;"  %>
+    <%= link_to "Cancel", :back, class: "sml-pink-btn ms-2", style: "width: 50%; text-align: center;"   %>
+  </div>
 <% end %>
