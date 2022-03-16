@@ -6,7 +6,13 @@
       </div>
       <div style="width: 300px">
       <%= simple_form_for(@item) do |f| %>
-        <%= f.association :list, label: "Select a list or leave this blank" %>
+        <% if current_user.lists.empty? %>
+          <%= f.association :list, collection: current_user.lists, include_blank: "-- No list to choose from --" %>
+        <% elsif @item.list.nil? %>
+          <%= f.association :list, collection: current_user.lists, label: "Select a list or leave this blank" %>
+        <% else %>
+          <%= f.association :list, collection: current_user.lists, label: "Select a list" %>
+        <% end %>
         <%= f.input :name, label: "Item name" %>
         <%= f.input :description %>
         <div id='locations'>

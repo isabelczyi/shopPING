@@ -2,7 +2,7 @@
   <% current_user.lists.each do |list| %>
     <div class="my-3 list-card d-flex flex-row sortable-draggable" data-controller="swipe">
       <div class="p-2 links-card">
-          <div class="name-card">
+          <div class="name-card" style="text-align: center">
             <%= link_to list.name, list_path(list) %>
           </div>
       </div>
