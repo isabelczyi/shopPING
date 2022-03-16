@@ -1,7 +1,9 @@
 <%= simple_form_for @list do |f| %>
-  <div class="form-inputs" style="height: 150px">
+  <div class="form-inputs" style="height: auto">
     <%= f.input :name %>
   </div>
-  <%= f.submit "Submit list",  class: "lrg-pink-btn" %>
-  <%= link_to "Cancel", :back, class: "sml-pink-btn" %>
+  <div class="d-flex justify-content-between">
+  <%= f.submit "Submit",  class: "lrg-pink-btn", style: "width: 50%" %>
+  <%= link_to "Cancel", :back, class: "sml-pink-btn ms-2", style: "width: 50%; text-align: center;"  %>
+  </div>
 <% end %>
