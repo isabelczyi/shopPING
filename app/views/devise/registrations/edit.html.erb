@@ -40,9 +40,9 @@
                       required: true,
                       input_html: { autocomplete: "current-password" } %>
         </div>
-        <div class="p-2 form-actions">
-          <%= f.button :submit, "Update", class: "lrg-pink-btn" %>
-          <%= link_to "Cancel", :back, class: "sml-pink-btn" %>
+        <div class="p-2 form-actions d-flex justify-content-between">
+          <%= f.button :submit, "Update", class: "lrg-pink-btn", style: "width: 50%; text-align: center" %>
+          <%= link_to "Cancel", :back, class: "sml-pink-btn ms-2", style: "width: 50%; text-align: center" %>
         </div>
       <% end %>
       <div class="p-2">
