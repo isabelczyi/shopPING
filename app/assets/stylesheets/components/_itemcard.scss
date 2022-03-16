@@ -1,21 +1,23 @@
-.item-desc {
-  background: white;
-  padding: 10px 30px 10px 10px;
-  margin-top: 5px;
-  border-radius: 8px;
-}
+// .item-desc {
+//   background: white;
+//   padding: 10px 30px 10px 10px;
+//   margin-top: 5px;
+//   border-radius: 8px;
+// }
 
 .item-desc p {
   color: $brown;
-}
-
-.item-info a {
-  color: $brown;
-  align-items: center;
+  font-size: 16px;
+  padding: 15px 0px 10px 15px;
 }
 
 .item-name {
 padding-left: 10px;
+color: $brown;
+padding-bottom: 16px;
+padding-top: 16px;
+border-radius: 8px;
+font-size: 18px;
 }
 
 .item-name a {
@@ -23,6 +25,7 @@ padding-left: 10px;
   color: $brown;
 }
 
-strong {
-  color: $brown;
-}
+// strong {
+//   color: $brown;
+//   font-size: 16px;
+// }

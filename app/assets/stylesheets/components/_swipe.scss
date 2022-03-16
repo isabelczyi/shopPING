@@ -27,6 +27,8 @@
     right: 0px;
     height: 100%;
     width: 50%;
+    border-top: 2px solid #f0dfad;
+    border-right: 2px solid #f0dfad;
 
     .reveal-btn {
       width: 50%;
@@ -57,4 +59,9 @@
   .links-card {
     transform: translateX(-50%);
   }
+}
+
+.name-card {
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
