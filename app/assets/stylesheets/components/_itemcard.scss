@@ -1,14 +1,16 @@
-// .item-desc {
-//   background: white;
-//   padding: 10px 30px 10px 10px;
-//   margin-top: 5px;
-//   border-radius: 8px;
-// }
+.item-desc {
+  background: $almost-white;
+  padding-left: 45px;
+  // padding: 10px 30px 10px 10px;
+  // margin-top: 5px;
+  // border-radius: 8px;
+}
 
 .item-desc p {
   color: $brown;
-  font-size: 16px;
-  padding: 15px 0px 10px 15px;
+  font-size: 12px;
+  font-style: italic;
+  // padding: 15px 0px 10px 15px;
 }
 
 .item-name {
