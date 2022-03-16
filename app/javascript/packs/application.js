@@ -16,14 +16,7 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 
-const svgContainer = document.getElementById('confetti_svg');
-const animItem = bodymovin.loadAnimation({
-  wrapper: svgContainer,
-  animType: 'svg',
-  loop: false,
-  autoplay: false,
-  path: 'https://assets1.lottiefiles.com/packages/lf20_rovf9gzu.json'
-});
+let animItem;
 
 const playConfetti = () => {
   animItem.goToAndPlay(0, true)
@@ -58,9 +51,19 @@ const toggleCheckbox = (event) => {
 
 document.addEventListener('turbolinks:load', (e) => {
   const checkboxes = document.querySelectorAll('#checkbox')
+  const svgContainer = document.getElementById('confetti_svg');
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('click', toggleCheckbox)
   })
+
+  animItem = bodymovin.loadAnimation({
+    wrapper: svgContainer,
+    animType: 'svg',
+    loop: false,
+    autoplay: false,
+    path: 'https://assets1.lottiefiles.com/packages/lf20_rovf9gzu.json'
+  });
+
 })
 
 
