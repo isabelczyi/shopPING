@@ -6,8 +6,8 @@ class ItemsController < ApplicationController
   skip_after_action :verify_authorized, only: :near
 
   def index
-    @items = policy_scope(Item).order(created_at: :desc)
-    @markers = @items.map do |item|
+    @items = policy_scope(Item).where("user_id = '#{current_user.id}'").includes(:locations).order(created_at: :desc)
+    @markers = @items.includes(:locations).map do |item|
       item.locations.map do |location|
         {
           lat: location.latitude,
@@ -15,18 +15,6 @@ class ItemsController < ApplicationController
           info_window: render_to_string(partial: "info_window", locals: { location: location })
         }
       end
-    end
-  end
-
-  def show
-    @item = Item.find(params[:id])
-    authorize @item
-    @markers = @item.locations.map do |location|
-      {
-        lat: location.latitude,
-        lng: location.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { location: location })
-      }
     end
   end
 
