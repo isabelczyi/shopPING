@@ -1,11 +1,11 @@
 class ListsController < ApplicationController
 
   def index
-    @lists = policy_scope(List).order(created_at: :desc)
+    @lists = policy_scope(List).where("user_id = '#{current_user.id}'").order(created_at: :desc)
   end
 
   def show
-    @list = List.find(params[:id])
+    @list = List.find(params[:id]).includes(:items)
     authorize @list
   end
 
