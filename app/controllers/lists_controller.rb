@@ -5,7 +5,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = List.find(params[:id]).includes(:items)
+    @list = List.find(params[:id])
     authorize @list
   end
 
